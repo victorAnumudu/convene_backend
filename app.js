@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
+const cors = require("cors");
+
 const app = express()
 
 // FOR WEB SOCKET
@@ -8,6 +10,7 @@ const {WebSocketServer} = require('ws')
 const url = require('url')
 // END OF WEB SOCKET
 
+app.use(cors({credentials: true}));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
