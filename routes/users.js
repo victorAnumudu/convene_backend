@@ -11,7 +11,7 @@ const {userDoesNotExistByEmail, userExistByEmail, validUserToken} = require('../
 userRoutes.get('/', getAllUsers)
 
 // get user by id
-userRoutes.get('/:id', validUserToken, getAllUserByID)
+userRoutes.get('/profile', validUserToken, getAllUserByID)
 
 // add a user
 userRoutes.post('/', userDoesNotExistByEmail, addUser)

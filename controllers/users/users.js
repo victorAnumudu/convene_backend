@@ -52,10 +52,11 @@ const getAllUsers = async (req, res) => {
 
 
 const getAllUserByID = (req, res) => {
-    const passedID = req.params.id
-    if(!passedID){ // return if no id is present in params sent
-        res.status(404).json({status: -1, message: 'No active users', data:[]})
-    }
+    const passedID = req.myLocals.id
+    // return if no id is present in params sent
+    // if(!passedID){
+    //     res.status(404).json({status: -1, message: 'No active users', data:[]})
+    // }
     usersModel.findById(passedID).then((info)=>{
         if(!info){
             return res.status(404).json({status: -1, message: 'user not found', data:[]})
